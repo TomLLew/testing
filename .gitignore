@@ -1,0 +1,10 @@
+/venv/
+/.pytest_cache/
+
+/python_exercises/__pycache__/
+/python_exercises/__init__.py
+
+/tests/.coverage
+/tests/.pytest_cache/
+/tests/__pycache__/
+/tests/__init__.py
