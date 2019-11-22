@@ -1,0 +1,22 @@
+CREATE TABLE user_accounts	(
+	user_id int NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+	user_firstname varchar(100) NOT NULL,
+	user_lastname varchar(150) NOT NULL,
+	user_email varchar(255) NOT NULL UNIQUE,
+	user_balance int NOT NULL
+);
+
+
+CREATE TABLE account	(
+	account_id int NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+	account_owner int NOT NULL, 
+	account_balance int NOT NULL DEFAULT 0 
+);
+
+ALTER TABLE user_accounts
+ADD CONSTRAINT FK_balance 
+FOREIGN KEY (user_balance) REFERENCES account(account_id);
+
+ALTER TABLE account 
+ADD CONSTRAINT FK_account_user
+FOREIGN KEY (account_owner) REFERENCES user_accounts(user_id); 
